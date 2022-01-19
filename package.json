@@ -1,0 +1,12 @@
+
+{
+  "name": "code-learn-api",
+  "version": "1.0.0",
+  "description": "API code-learn app",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  }
+}
