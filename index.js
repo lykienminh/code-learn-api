@@ -3,14 +3,32 @@ const app = express()
 
 //set up
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: '',         //can modify 
-  host: '',
-  database: '',
-  password: '',     //can modify
-  port: 5432,
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'jqwimixjeodukb',         //can modify 
+//   host: 'ec2-52-44-80-40.compute-1.amazonaws.com',
+//   database: 'dcrj71ad8ke06o',
+//   password: '1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d',     //can modify
+//   port: 5432,
+// });
+
+/*const {Client} = require('pg');
+const pool = new Client({
+    connectionString: 'postgres://{jqwimixjeodukb}:{1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d}@{ec2-52-44-80-40.compute-1.amazonaws.com}:5432/{dcrj71ad8ke06o}',
+    ssl: { rejectUnauthorized: false }
 });
+pool.connect();*/
+
+//DATABASE_URL = "postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o"
+  
+const { Client } = require('pg');
+
+const pool = new Client({
+    connectionString: process.env.DATABASE_URL || 'postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o',
+    ssl: process.env.DATABASE_URL ? true : false
+});
+
+pool.connect();
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -126,7 +144,7 @@ app.post("/runcode", async (req, res) => {
 "codeData": "n = int(input())\nanswer = 0\nfor i in range(1, n + 1):\n\tanswer += i\nprint(answer)"
 }*/
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.warn(`App listening on http://localhost:${PORT}`);
 });  
