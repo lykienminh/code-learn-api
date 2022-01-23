@@ -1,33 +1,33 @@
-### code-learn-api
+# **code-learn-api**
 
-# GET /
+### GET /
 *Get all question*
 
-# GET /:id
+### GET /:id
 *Get question {id}*
 
-# POST /runcode
+### POST /runcode
 
 {
 "questionID" : 31,
 "codeData": "n = int(input())\nansnwer = 0\nfor i in range(1, n + 1):\n\tanswer += i\nprint(answer)"
 }
 
-** result ** 
+# ** _result_ ** 
 
-[
-    {
-        "id": 1,
-        "input": "5",
-        "actualOutput": "",
-        "expectedOutput": "15",
-        "Message": "name 'answer' is not defined"
-    },
-    {
-        "id": 2,
-        "input": "7",
-        "actualOutput": "",
-        "expectedOutput": "28",
-        "Message": "name 'answer' is not defined"
-    }
+[\n
+    {\n
+        "id": 1,\n
+        "input": "5",\n
+        "actualOutput": "",\n
+        "expectedOutput": "15",\n
+        "Message": "name 'answer' is not defined"\n
+    },\n
+    {\n
+        "id": 2,\n
+        "input": "7",\n
+        "actualOutput": "",\n
+        "expectedOutput": "28",\n
+        "Message": "name 'answer' is not defined"\n
+    }\n
 ]
