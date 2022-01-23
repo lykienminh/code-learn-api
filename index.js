@@ -127,10 +127,14 @@ app.post("/runcode", async (req, res) => {
 "codeData": "n = int(input())\nanswer = 0\nfor i in range(1, n + 1):\n\tanswer += i\nprint(answer)"
 }*/
 
-  
-app.listen(port, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.warn(`App listening on http://localhost:${PORT}`);
+});  
+
+/*app.listen(port, () => {
     console.log(`App running on port ${port}.`)
-})
+})*/
 
 /*app.post("/run-code", async (req, res) => {
     try {

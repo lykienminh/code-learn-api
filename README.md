@@ -31,3 +31,6 @@
         "Message": "name 'answer' is not defined",<br />
     }<br />
 ]<br />
+
+heroku login
+heroku create codelearnapi
