@@ -5,16 +5,16 @@ const app = express()
 
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'jqwimixjeodukb',         //can modify 
-  host: 'ec2-52-44-80-40.compute-1.amazonaws.com',
-  database: 'dcrj71ad8ke06o',
-  password: '1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d',     //can modify
+  user: '',         //can modify 
+  host: '',
+  database: '',
+  password: '',     //can modify
   port: 5432,
 });
 
 app.use(express.json())
 app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
   next();
