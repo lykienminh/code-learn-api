@@ -34,3 +34,6 @@
 
 heroku login
 heroku create codelearnapi
+heroku git:remote -a codelearnapi
+
+psql -h hostname -d databasename -U username
