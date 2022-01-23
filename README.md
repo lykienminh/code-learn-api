@@ -13,7 +13,7 @@
 "codeData": "n = int(input())\nansnwer = 0\nfor i in range(1, n + 1):\n\tanswer += i\nprint(answer)"
 }
 
-# ** _result_ ** 
+#### ** _result_ ** 
 
 [<br />
     {<br />
