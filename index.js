@@ -65,7 +65,7 @@ app.get("/:id", async (req, res) => {
     return str;
 }*/
 // run code
-const axios = require('axios')
+/*const axios = require('axios')
 app.post("/runcode", async (req, res) => {
     try {
         const codeData = req.body.codeData;
@@ -137,7 +137,7 @@ app.post("/runcode", async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+})*/
 
 /*{
 "questionID" : 31,
