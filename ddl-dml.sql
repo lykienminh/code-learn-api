@@ -1,14 +1,7 @@
 -- DROP DATABASE IF EXISTS code-learn-db;
 -- CREATE DATABASE code-learn-db;
 
-CREATE TABLE problem (
-	question_id integer primary key,
-	description varchar(1000),
-	testcase_input_1 varchar(10), 
-	testcase_output_1 varchar(1000),
-	testcase_input_2 varchar(10),
-	testcase_output_2 varchar(1000)
-);
+CREATE TABLE problem (question_id integer primary key, description varchar(1000), testcase_input_1 varchar(10), testcase_output_1 varchar(1000), testcase_input_2 varchar(10), testcase_output_2 varchar(1000));
 
 INSERT INTO problem
 VALUES (31, 'Viết chương trình lấy số nguyên n từ người dùng và hiển thị tổng các số từ 1 đến n trên màn hình. 

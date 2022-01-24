@@ -12,23 +12,23 @@ const app = express()
 //   port: 5432,
 // });
 
-/*const {Client} = require('pg');
+const {Client} = require('pg');
 const pool = new Client({
-    connectionString: 'postgres://{jqwimixjeodukb}:{1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d}@{ec2-52-44-80-40.compute-1.amazonaws.com}:5432/{dcrj71ad8ke06o}',
-    ssl: { rejectUnauthorized: false }
+    user: 'jqwimixjeodukb',         
+    host: 'ec2-52-44-80-40.compute-1.amazonaws.com',
+    database: 'dcrj71ad8ke06o',
+    password: '1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d',    
+    port: 5432,
+    ssl: true,
 });
-pool.connect();*/
-
-//DATABASE_URL = "postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o"
-  
-const { Client } = require('pg');
-
-const pool = new Client({
-    connectionString: process.env.DATABASE_URL || 'postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o',
-    ssl: process.env.DATABASE_URL ? true : false
-});
-
 pool.connect();
+  
+/*const { Client } = require('pg');
+
+const pool = new Client({
+    connectionString: "postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o",
+    //ssl: process.env.DATABASE_URL ? true : false,
+});*/
 
 app.use(express.json())
 app.use(function (req, res, next) {
