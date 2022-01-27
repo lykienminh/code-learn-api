@@ -87,7 +87,10 @@ app.post("/runcode", async (req, res) => {
         for (let i = 0; i < 2; i++) {
             let codeNewData = codeData
             for (let j = 0; j < numParam; j++) {
-                if (codeNewData.includes("input()")) codeNewData = codeNewData.replace("input()", String(input[i][j]));
+                if (codeNewData.includes("input()")) {
+                    if (typeof input[i][j] !== 'string') codeNewData = codeNewData.replace("input()", input[i][j]);
+                    else codeNewData = codeNewData.replace("input()", '\"' + input[i][j] + '\"')
+                }
                 else break;
             }
             // call api python compiler
