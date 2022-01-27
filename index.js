@@ -90,7 +90,6 @@ app.post("/runcode", async (req, res) => {
                 if (codeNewData.includes("input()")) codeNewData = codeNewData.replace("input()", String(input[i][j]));
                 else break;
             }
-
             // call api python compiler
             let postData = JSON.stringify({ "code": codeNewData});
             postData = JSON.parse(postData)
@@ -113,6 +112,7 @@ app.post("/runcode", async (req, res) => {
                 "actualOutput": actualOutput,
                 "expectedOutput": expectedOutput[i],
                 "Message": actualMessage,
+                "LeeKimMinSoCool": codeNewData,
             });
 
             outputSmall = JSON.parse(outputSmall)
