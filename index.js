@@ -3,25 +3,6 @@ const app = express()
 
 //set up
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'jqwimixjeodukb',         //can modify 
-//   host: 'ec2-52-44-80-40.compute-1.amazonaws.com',
-//   database: 'dcrj71ad8ke06o',
-//   password: '1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d',     //can modify
-//   port: 5432,
-// });
-
-const {Client} = require('pg');
-const pool = new Client({
-    user: 'jqwimixjeodukb',         
-    host: 'ec2-52-44-80-40.compute-1.amazonaws.com',
-    database: 'dcrj71ad8ke06o',
-    password: '1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d',    
-    port: 5432,
-    ssl: true,
-});
-pool.connect();
 
 app.use(express.json())
 app.use(function (req, res, next) {
