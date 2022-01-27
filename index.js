@@ -22,13 +22,6 @@ const pool = new Client({
     ssl: true,
 });
 pool.connect();
-  
-/*const { Client } = require('pg');
-
-const pool = new Client({
-    connectionString: "postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o",
-    //ssl: process.env.DATABASE_URL ? true : false,
-});*/
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -94,7 +87,7 @@ app.post("/runcode", async (req, res) => {
         for (let i = 0; i < 2; i++) {
             let codeNewData = codeData
             for (let j = 0; j < numParam; j++) {
-                if (codeNewData.includes("input()")) codeNewData = codeNewData.replace("input()", input[i][j]);
+                if (codeNewData.includes("input()")) codeNewData = codeNewData.replace("input()", String(input[i][j]));
                 else break;
             }
 
@@ -110,8 +103,10 @@ app.post("/runcode", async (req, res) => {
                 res.status(500).send(error);
             })
             actualOutput = actualOutput.slice(0, -1)
-            if (actualOutput === expectedOutput[i]) actualMessage = "Right answer"
+            // if (actualOutput === expectedOutput[i]) actualMessage = "Right answer"
+            if (actualOutput === expectedOutput[i].split('\\n').join('\n')) actualMessage = "Right answer"  
             else if (actualMessage === "") actualMessage = "Wrong answer"
+            // save
             let outputSmall = await JSON.stringify({ 
                 "id":  i + 1,
                 "input": originInput[i],
@@ -119,6 +114,7 @@ app.post("/runcode", async (req, res) => {
                 "expectedOutput": expectedOutput[i],
                 "Message": actualMessage,
             });
+
             outputSmall = JSON.parse(outputSmall)
             output.push(outputSmall)
         }
@@ -200,3 +196,10 @@ app.listen(PORT, () => {
         res.status(500).send(error+"77");
     }
 })*/
+
+/*const { Client } = require('pg');
+
+const pool = new Client({
+    connectionString: "postgres://jqwimixjeodukb:1d7d0dc399de2542ed3bfa3d4107ca21b3bd8965a1c554e353b15f446023d71d@ec2-52-44-80-40.compute-1.amazonaws.com:5432/dcrj71ad8ke06o",
+    //ssl: process.env.DATABASE_URL ? true : false,
+});*/
